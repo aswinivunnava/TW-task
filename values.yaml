@@ -23,10 +23,10 @@ init:
 
 php:
   ## php.repository default php image
-  repository: "php"
+  repository: "registry.access.redhat.com/rhscl/php-72-rhel7"
 
   ## php.tag default php image tag
-  tag: "7-fpm-alpine"
+  tag: "latest"
 
   ## php.pullPolicy Image pull policy
   pullPolicy: Always
@@ -52,7 +52,7 @@ php:
   #   pm.max_children = 120
 
   ## php.copyRoot if true, copies the containers web root `/var/www/html` into
-  copyRoot: false
+  copyRoot: true
 
   ## persistent storage. This must be enabled, if the container already comes with
   ## files installed to `/var/www/html`
@@ -74,10 +74,10 @@ php:
 
 httpd:
   ## httpd.repository default httpd image
-  repository: "httpd"
+  repository: "rhscl/httpd-24-rhel7"
 
   ## httpd.tag default httpd image tag
-  tag: "2.4-alpine"
+  tag: "latest"
 
   ## httpd.resources HTTPD container resource requests/limits
   resources: false
@@ -103,10 +103,10 @@ mysql:
   ##     [mysql](https://hub.docker.com/_/mysql/)
   ##     [mariadb](https://hub.docker.com/_/mariadb/)
   ##     [percona](https://hub.docker.com/_/percona/)
-  repository: "mysql"
+  repository: "registry.access.redhat.com/rhscl/mariadb-102-rhel7"
 
   ## mysql.tag MySQL image tag
-  tag: "5.7"
+  tag: "latest"
 
   ## mysql.imagePullPolicy Image pull policy
   imagePullPolicy: Always
