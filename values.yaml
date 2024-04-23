@@ -74,8 +74,8 @@ php:
 
 httpd:
   ## httpd.repository default httpd image
-  repository: "rhscl/httpd-24-rhel7"
-
+  repository: "httpd"
+  ## unable to pull rhscl/httpd-24-rhel7 
   ## httpd.tag default httpd image tag
   tag: "latest"
 
