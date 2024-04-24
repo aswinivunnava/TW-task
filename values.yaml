@@ -88,16 +88,16 @@ httpd:
 
 mysql:
   ## mysql.rootPassword Sets the MySQL root password, enables MySQL service if not empty
-  # rootPassword: root_password
+  rootPassword: root_password
 
   ## mysql.user MySQL user
-  # user: user
+  user: wiki'@'localhost
 
   ## mysql.password MySQL user password
-  # password: user_password
+  password: THISpasswordSHOULDbeCHANGED
 
   ## mysql.database MySQL user database
-  # database: database
+  database: database_name
 
   ## mysql.repository MySQL image - choose one of the official images
   ##     [mysql](https://hub.docker.com/_/mysql/)
