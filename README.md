@@ -25,3 +25,6 @@ you can find more information about the procedure in https://www.mediawiki.org/w
 * set these changes in files/httpd/httpd.conf in helm chart
   
   
+# Installing the Chart
+  To install the chart with the release name my-release:
+  helm install --name my-release stable/lamp
