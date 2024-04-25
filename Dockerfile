@@ -34,4 +34,4 @@ RUN cd /var/www && \
 RUN chown -R apache:apache /var/www/mediawiki-1.41.1
 
 
-CMD ["scl", "enable", "httpd24", "rh-php73", "--", "httpd", "-D", "FOREGROUND"]
+CMD ["scl", "enable", "httpd24", "rh-php73" , "httpd", "-D", "FOREGROUND"]
