@@ -1,0 +1,15 @@
+# Use the official MySQL image as the base image
+FROM registry.access.redhat.com/rhscl/mariadb-102-rhel7
+
+# Set the environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=root_password
+ENV MYSQL_DATABASE=wikidatabase
+ENV MYSQL_USER=wiki
+ENV MYSQL_PASSWORD=THISpasswordSHOULDbeCHANGED
+
+# Copy the SQL script to initialize the database
+COPY db.sql /docker-entrypoint-initdb.d/
+
+# Expose the MySQL port
+EXPOSE 3306
+

@@ -16,8 +16,8 @@ ENV PHP_ROOT=/opt/rh/rh-php73/root
 RUN mkdir -p $HTTPD_ROOT
 
 # Copy default SSL certificates into the container
-COPY ../localhost.crt /etc/httpd/tls/
-COPY ../localhost.key /etc/httpd/tls/
+COPY localhost.crt /etc/httpd/tls/
+COPY localhost.key /etc/httpd/tls/
 
 # Expose port 80
 EXPOSE 80

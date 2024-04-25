@@ -91,19 +91,19 @@ mysql:
   rootPassword: root_password
 
   ## mysql.user MySQL user
-  user: wiki'@'localhost
+  #user: wiki
 
   ## mysql.password MySQL user password
-  password: THISpasswordSHOULDbeCHANGED
+  #password: THISpasswordSHOULDbeCHANGED
 
   ## mysql.database MySQL user database
-  database: database_name
+  #database: database_name
 
   ## mysql.repository MySQL image - choose one of the official images
   ##     [mysql](https://hub.docker.com/_/mysql/)
   ##     [mariadb](https://hub.docker.com/_/mariadb/)
   ##     [percona](https://hub.docker.com/_/percona/)
-  repository: "registry.access.redhat.com/rhscl/mariadb-102-rhel7"
+  repository: "aswinivunnava/tw-sql"
 
   ## mysql.tag MySQL image tag
   tag: "latest"
