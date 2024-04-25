@@ -9,5 +9,18 @@
 * build image is in public docker hub - aswinivunnava/thoughtwork-httpd
 * If want to build and run image local required to generate SSL files which is required to copy to docker image
 * **aswinivunnava/thoughtwork-httpd** configured for httpd in values.yml file
-* From Software collection php image edited in values.yaml file: docker-registry.wikimedia.org/dev/buster-php81-fpm:1.0.1-s2
+* From Software collection php image edited in values.yaml file: docker-registry.wikimedia.org/dev/buster-php81-fpm:1.0.1-s2 (taken from softwre collection)
+
+## MySql Configuration
+* Edited a db.sql file to set USER , DATABASE etc
+* Build a Docker image **aswinivunnava/tw-sql** using a Dockerfile-sql which configures MySql with base image registry.access.redhat.com/rhscl/mariadb-102-rhel7 (taken from softwre collection)
+* Also modified corresponding values in values.yaml file
+
+## Autostart webserver and database daemons
+* Autostarting these demons in Dockerfile
+
+## Webserver (Apache) post-install configuration
+
+* set these changes in files/httpd/httpd.conf in helm chart
+  
   
