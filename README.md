@@ -1,6 +1,7 @@
 
 # TW-task
-## Task to configure MediaWiki on RHEL https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Red_Hat_Linux
+## Task to configure MediaWiki on RHEL . 
+you can find more information about the procedure in https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Red_Hat_Linux
 
 # Using a LAMP Stack 
 ## Install operating system packages 
