@@ -5,10 +5,10 @@ you can find more information about the procedure in https://www.mediawiki.org/w
 
 # Using a LAMP Stack 
 ## Install operating system packages 
-* includes php and httpd releated packages
-* configuring httpd apache written a Dockerfile with base image centos/httpd-24-centos7:latest (taken from softwre collection)
-* build image is in public docker hub - aswinivunnava/thoughtwork-httpd
-* If want to build and run image local required to generate SSL files which is required to copy to docker image
+* Includes php and httpd releated packages
+* configuring httpd apache, for that written a Dockerfile with base image centos/httpd-24-centos7:latest (taken from softwre collection)
+* The build image is hosted on the public docker hub at 'aswinivunnava/thoughtwork-httpd'
+* If want to build and run image locally, you will need to  generate SSL files which is required to copy to docker image
 * **aswinivunnava/thoughtwork-httpd** configured for httpd in values.yml file
 * From Software collection php image edited in values.yaml file: docker-registry.wikimedia.org/dev/buster-php81-fpm:1.0.1-s2 (taken from softwre collection)
 
