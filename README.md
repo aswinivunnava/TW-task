@@ -29,3 +29,5 @@ you can find more information about the procedure in https://www.mediawiki.org/w
   To install the chart with the release name my-release:
                 
                   `helm install --name my-release TW-task`
+
+# CD pipeline to automate deployment in pipeline.yml 
