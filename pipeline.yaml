@@ -1,10 +1,9 @@
 trigger:
-- master
+- main
 
 variables:
   azureSubscription: 'AzureSubscription'
   acrName: 'ACRName'
-  helmChartPath: 'path/to/your/helm/chart'
   namespace: 'tw-namespace'
   kubernetesServiceConnection: 'KubernetesServiceConnection'
 
@@ -44,13 +43,13 @@ stages:
       inputs:
         connectionType: 'Azure Resource Manager'
         azureSubscription: $(azureSubscription)
-        azureResourceGroup: 'YourResourceGroup'
-        kubernetesCluster: 'YourAKSCluster'
+        azureResourceGroup: 'cloud-dev'
+        kubernetesCluster: 'dev-cluster-1'
         namespace: $(namespace)
         command: 'upgrade'
         chartType: 'FilePath'
-        chartPath: $(helmChartPath)
-        releaseName: 'your-release-name'
+        chartPath: '.'
+        releaseName: 'tw-release'
         overrideValues: |
           image.repository=your-image-repository
           image.tag=$(imageDigest)
