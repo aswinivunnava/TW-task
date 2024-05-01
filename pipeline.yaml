@@ -12,7 +12,7 @@ stages:
   displayName: Deploy Helm Chart
   jobs:
   - job: Deploy
-    displayName: Deploy to Kubernetes
+    displayName: Login 
     pool:
       vmImage: 'ubuntu-latest'
     steps:
