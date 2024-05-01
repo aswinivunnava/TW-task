@@ -12,12 +12,12 @@ stages:
   displayName: Deploy Helm Chart
   jobs:
   - job: Deploy
-    displayName: Login 
+  
     pool:
       vmImage: 'ubuntu-latest'
     steps:
     - task: AzureCLI@2
-      displayName: 'Login to Azure'
+      displayName: 'Login to ACR'
       inputs:
         azureSubscription: $(azureSubscription)
         scriptType: 'bash'
