@@ -11,46 +11,50 @@ stages:
 - stage: Deploy
   displayName: Deploy Helm Chart
   jobs:
-  - job: Deploy
-  
+  - deployment: Deploy
+    environment: dev # need to configure in environmemts 
     pool:
       vmImage: 'ubuntu-latest'
-    steps:
-    - task: AzureCLI@2
-      displayName: 'Login to ACR'
-      inputs:
-        azureSubscription: $(azureSubscription)
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: 'az acr login --name $(acrName)'
+    strategy:
+      rolling: 
+        deploy:
+        
+            steps:
+            - task: AzureCLI@2
+              displayName: 'Login to ACR'
+              inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: 'az acr login --name $(acrName)'
     
-    - task: AzureCLI@2
-      displayName: 'Pull latest image digest from ACR'
-      inputs:
-        azureSubscription: $(azureSubscription)
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          imageDigest=$(az acr repository show-manifests --name $(acrName) --repository your-repository-name --query "[0].digest" -o tsv)
-          echo "Latest image digest: $imageDigest"
+            - task: AzureCLI@2
+              displayName: 'Pull latest image digest from ACR'
+              inputs:
+                azureSubscription: $(azureSubscription)
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
+                inlineScript: |
+                  imageDigest=$(az acr repository show-manifests --name $(acrName) --repository your-repository-name --query "[0].digest" -o tsv)
+                echo "Latest image digest: $imageDigest"
     
-    - task: HelmInstaller@1
-      inputs:
-        helmVersionToInstall: 'latest'
+            - task: HelmInstaller@1
+              inputs:
+                helmVersionToInstall: 'latest'
     
-    - task: HelmDeploy@0
-      displayName: 'Deploy Helm chart'
-      inputs:
-        connectionType: 'Azure Resource Manager'
-        azureSubscription: $(azureSubscription)
-        azureResourceGroup: 'cloud-dev'
-        kubernetesCluster: 'dev-cluster-1'
-        namespace: $(namespace)
-        command: 'upgrade'
-        chartType: 'FilePath'
-        chartPath: '.'
-        releaseName: 'tw-release'
-        overrideValues: |
-          image.repository=your-image-repository
-          image.tag=$(imageDigest)
+            - task: HelmDeploy@0
+              displayName: 'Deploy Helm chart'
+              inputs:
+                connectionType: 'Azure Resource Manager'
+                azureSubscription: $(azureSubscription)
+                azureResourceGroup: 'cloud-dev'
+                kubernetesCluster: 'dev-cluster-1'
+                namespace: $(namespace)
+                command: 'upgrade'
+                chartType: 'FilePath'
+                chartPath: '.'
+                releaseName: 'tw-release'
+                overrideValues: |
+                    image.repository=your-image-repository
+                    image.tag=$(imageDigest)
 
