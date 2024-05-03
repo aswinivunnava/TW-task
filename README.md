@@ -31,3 +31,4 @@ you can find more information about the procedure in https://www.mediawiki.org/w
                   `helm install --name my-release TW-task`
 
 # CD pipeline to automate deployment in pipeline.yml 
+Written only for dev environment . can configure multi stage also 
